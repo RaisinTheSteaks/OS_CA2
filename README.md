@@ -5,3 +5,14 @@ Practicing git with terminal
 * Initialized a new Repo
 * Added a readme
 
+```
+#include <stdio.h>
+
+int main()
+{
+	printf("Testing");
+	return 0;
+}
+
+```
+
