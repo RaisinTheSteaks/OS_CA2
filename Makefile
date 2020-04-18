@@ -5,11 +5,15 @@ CC 		= gcc
 #--Compile flags
 FLAGS = -Wall -Wextra -Wpedantic
 
+#--List of files to be build
+OBJECTS = build/main.o \
+					build/sys.o 
 
 #--${varname} is used to call variables
 #used to compile all other files
-link: build/main.o build/sys.o
-	${CC} build/main.o build/sys.o -o build/main
+#$^ references whatever the dependencies are
+link: ${OBJECTS}
+	${CC} $^ -o build/main
 
 #--Compiles main.c
 build/main.o: main.c
