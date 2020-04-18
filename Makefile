@@ -31,3 +31,19 @@ clean:
 #--Run the solution
 run:
 	./build/main
+
+run-sec1-task1:
+	 printf “The quick brown fox jumps over the lazy dog\n” | wc -w
+
+run-sec1-task2:
+	 printf “The quick brown fox jumps over the lazy dog\n” | tr [a-z] [A-Z]
+
+run-sec1-task3:
+	 curl -o dkit.html https://www.dkit.ie
+
+run-sec1-task4: dkit.html
+	 tail -n 1 dkit.html > temp.txt ; printf "\n" >> temp.txt ; head -n 1 dkit.html >> temp.txt ; cat temp.txt |\
+	    tr '<' [ | tr '>' ]  >> mangled.txt; rm temp.txt
+
+run-sec2-task1: lib/colours.txt
+	 grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt
