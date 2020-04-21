@@ -23,6 +23,8 @@ build/main.o: main.c
 build/sys.o: lib/sys.c
 	${CC} -c ${FLAGS} lib/sys.c -o build/sys.o
 
+build/hexToDecimal.o: hexToDecimal.c
+	${cc} -c ${FLAGS} hexToDecimal.c -o build/hexToDecimal.o
 
 #--Remove all built files
 clean:
@@ -44,6 +46,8 @@ run-sec1-task3:
 run-sec1-task4: dkit.html
 	 tail -n 1 < dkit.html | tr '<>' '[]' > mangled.txt ; echo >> mangled.txt ; head -n 1 < dkit.html | tr '<>' '[]' >> mangled.txt
 
-
 run-sec2-task1: lib/colours.txt
 	 grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt
+
+run-sec2-task2: lib/colours.txt
+	 grep -E '#((([[:xdigit:]]){6}$)|(([[:xdigit:]]){8}$))' lib/colours.txt | tr -d '\n' | ./build/hexToDecimal | tr -d '#' | cut -d ',' -f 2 | tr '\n' ','
