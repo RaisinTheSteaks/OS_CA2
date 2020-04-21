@@ -42,8 +42,8 @@ run-sec1-task3:
 	 curl -o dkit.html https://www.dkit.ie
 
 run-sec1-task4: dkit.html
-	 tail -n 1 dkit.html > temp.txt ; printf "\n" >> temp.txt ; head -n 1 dkit.html >> temp.txt ; cat temp.txt |\
-	    tr '<' [ | tr '>' ]  >> mangled.txt; rm temp.txt
+	 tail -n 1 < dkit.html | tr '<>' '[]' > mangled.txt ; echo >> mangled.txt ; head -n 1 < dkit.html | tr '<>' '[]' >> mangled.txt
+
 
 run-sec2-task1: lib/colours.txt
 	 grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt
