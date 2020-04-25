@@ -55,3 +55,8 @@ run-sec2-task2: lib/colours.txt
 run-sec2-task3: lib/colours.txt
 	grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt | tr -d '\n' | ./build/hexToDecimal | sort -k 4 -t , -n >> rgba-colours.txt
 
+run-sec3-task1: lib/access.log
+	tail lib/access.log
+
+run-sec3-task2: lib/access.log
+	cut -d " " -f 1 lib/access.log | sort -n | uniq
