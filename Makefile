@@ -60,3 +60,6 @@ run-sec3-task1: lib/access.log
 
 run-sec3-task2: lib/access.log
 	cut -d " " -f 1 lib/access.log | sort -n | uniq
+
+run-sec3-task3: lib/access.log
+	grep -e '" 404' lib/access.log | cut -d " " -f 3-5
