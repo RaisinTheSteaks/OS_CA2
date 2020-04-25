@@ -9,6 +9,8 @@ FLAGS = -Wall -Wextra -Wpedantic
 OBJECTS = build/main.o \
 					build/sys.o 
 
+OUTPUT = output/
+
 #--${varname} is used to call variables
 #used to compile all other files
 #$^ references whatever the dependencies are
@@ -35,16 +37,16 @@ run:
 	./build/main
 
 run-sec1-task1:
-	printf “The quick brown fox jumps over the lazy dog\n” | wc -w
+	printf 'The quick brown fox jumps over the lazy dog\n' | wc -w
 
 run-sec1-task2:
-	printf “The quick brown fox jumps over the lazy dog\n” | tr [a-z] [A-Z]
+	printf 'The quick brown fox jumps over the lazy dog\n' | tr [a-z] [A-Z]
 
 run-sec1-task3:
-	curl -o dkit.html https://www.dkit.ie
+	curl -o ${OUTPUT}dkit.html https://www.dkit.ie
 
-run-sec1-task4: dkit.html
-	tail -n 1 < dkit.html | tr '<>' '[]' > mangled.txt ; echo >> mangled.txt ; head -n 1 < dkit.html | tr '<>' '[]' >> mangled.txt
+run-sec1-task4: ${OUTPUT}dkit.html
+	tail -n 1 < ${OUTPUT}dkit.html | tr '<>' '[]' > ${OUTPUT}mangled.txt ; echo >> ${OUTPUT}mangled.txt ; head -n 1 < ${OUTPUT}dkit.html | tr '<>' '[]' >> ${OUTPUT}mangled.txt
 
 run-sec2-task1: lib/colours.txt
 	grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt
@@ -53,7 +55,7 @@ run-sec2-task2: lib/colours.txt
 	grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt | tr -d '\n' | ./build/hexToDecimal | cut -d ',' -f 2 | tr '\n' ','
 
 run-sec2-task3: lib/colours.txt
-	grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt | tr -d '\n' | ./build/hexToDecimal | sort -k 4 -t , -n >> rgba-colours.txt
+	grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt | tr -d '\n' | ./build/hexToDecimal | sort -k 4 -t , -n > ${OUTPUT}rgba-colours.txt
 
 run-sec3-task1: lib/access.log
 	tail lib/access.log
@@ -63,3 +65,7 @@ run-sec3-task2: lib/access.log
 
 run-sec3-task3: lib/access.log
 	grep -e '" 404' lib/access.log | cut -d " " -f 3-5
+
+run-sec3-task4: lib/access.log
+	grep -E '((Trident)|(MSIE))' lib/access.log > ${OUTPUT}access.ie.log
+
