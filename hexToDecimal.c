@@ -20,7 +20,7 @@ int main()
 
 		if(buffer[count] == '#')
 		{
-			printf("%c" , '#');
+			printf("%s" , "rgba(");
 			count++;
 			continue;
 		}
@@ -39,15 +39,24 @@ int main()
 		}
 
 
-		for(int i = 0; i <= index; i+= 2)
+		for(int i = 0; i < 6; i+= 2)
 		{
+
 			char hex[3] = {hex_str[i] , hex_str[i+1], '\0'};
 			long decimal = strtol(hex, NULL, 16);
 			if(decimal != 0)
 				printf("%d,", decimal);
 		}
-		
-		printf("\n");
+
+		long alpha = 255;
+
+		if(index > 6)
+		{
+			char hex[3] = {hex_str[6] , hex_str[7], '\0'};
+			alpha = strtol(hex, NULL, 16);
+		}
+
+		printf("%d)\n", alpha);
 
 	}
 

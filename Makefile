@@ -35,19 +35,23 @@ run:
 	./build/main
 
 run-sec1-task1:
-	 printf “The quick brown fox jumps over the lazy dog\n” | wc -w
+	printf “The quick brown fox jumps over the lazy dog\n” | wc -w
 
 run-sec1-task2:
-	 printf “The quick brown fox jumps over the lazy dog\n” | tr [a-z] [A-Z]
+	printf “The quick brown fox jumps over the lazy dog\n” | tr [a-z] [A-Z]
 
 run-sec1-task3:
-	 curl -o dkit.html https://www.dkit.ie
+	curl -o dkit.html https://www.dkit.ie
 
 run-sec1-task4: dkit.html
-	 tail -n 1 < dkit.html | tr '<>' '[]' > mangled.txt ; echo >> mangled.txt ; head -n 1 < dkit.html | tr '<>' '[]' >> mangled.txt
+	tail -n 1 < dkit.html | tr '<>' '[]' > mangled.txt ; echo >> mangled.txt ; head -n 1 < dkit.html | tr '<>' '[]' >> mangled.txt
 
 run-sec2-task1: lib/colours.txt
-	 grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt
+	grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt
 
 run-sec2-task2: lib/colours.txt
-	 grep -E '#((([[:xdigit:]]){6}$)|(([[:xdigit:]]){8}$))' lib/colours.txt | tr -d '\n' | ./build/hexToDecimal | tr -d '#' | cut -d ',' -f 2 | tr '\n' ','
+	grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt | tr -d '\n' | ./build/hexToDecimal | cut -d ',' -f 2 | tr '\n' ','
+
+run-sec2-task3: lib/colours.txt
+	grep -E '#((([[:xdigit:]]){6}$$)|(([[:xdigit:]]){8}$$))' lib/colours.txt | tr -d '\n' | ./build/hexToDecimal | sort -k 4 -t , -n >> rgba-colours.txt
+
