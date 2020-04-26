@@ -1,7 +1,7 @@
-#Operating System CA 2 Unix Tools
+# Operating System CA 2 Unix Tools
 This project is the result of collaboration between Joshua Corcoran and Antony Saputra.The purpose of this project is to solve tasks that are given using a given UNIX tools.
 
-##Josh's Contributions
+## Josh's Contributions
 * Initialized a new Repo
 * Set up project directories
 * Section 1:
@@ -16,7 +16,7 @@ This project is the result of collaboration between Joshua Corcoran and Antony S
 	- Task 3
 * Created efficient Makefile
 
-##Antony's Contributions
+## Antony's Contributions
 * Section 1:
 	- Task 4
 * Section 2:
@@ -28,7 +28,7 @@ This project is the result of collaboration between Joshua Corcoran and Antony S
 * Created custom C program called hexToDecimal.c
 * Created custom C program called calculate_times.c
 
-##Running result of each section
+## Running result of each section
 In order to run each section, type:
 
 ```
