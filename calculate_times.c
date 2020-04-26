@@ -16,6 +16,7 @@ int main()
 	int totalProcTime = 0;
 	int minProcTime = 0;
 	int maxProcTime = 0;
+	int currentProcTime = 0;
 
 	int numOfRequest = 1;
 	bool detectingRequestPath = false;
@@ -54,7 +55,7 @@ int main()
 		}
 		else
 		{//if detects delimiter
-			int currentProcTime = buffer[count-1] - '0';
+			currentProcTime = buffer[count-1] - '0';
 
 			if(buffer[count-2] != ' ')
 			{
@@ -82,7 +83,7 @@ int main()
 			{
 				if(numOfRequest > 1)
 				{
-					float avg = totalProcTime/numOfRequest;
+					float avg = (float)totalProcTime/(float)numOfRequest;
 					printf("Path: %s\t Number of Request: %d\t  Shortest PROC_TIME: %d\t  Longest PROC_TIME: %d\t  Average PROC_TIME: %.2f\n",prevRequest, numOfRequest ,minProcTime, maxProcTime, avg);
 				}
 				numOfRequest = 1;
@@ -103,7 +104,13 @@ int main()
 		count++;
 	}
 
-	float avg = totalProcTime/numOfRequest;
+	numOfRequest++;
+	totalProcTime += currentProcTime;
+	minProcTime = (currentProcTime < minProcTime) ? currentProcTime : minProcTime;
+	maxProcTime = (currentProcTime > maxProcTime) ? currentProcTime : maxProcTime;
+
+	//printf("%d\n", totalProcTime);
+	float avg = (float)totalProcTime/(float)numOfRequest;
 	printf("Path: %s\t Number of Request: %d\t  Shortest PROC_TIME: %d\t  Longest PROC_TIME: %d\t  Average PROC_TIME: %.2f\n",prevRequest, numOfRequest ,minProcTime, maxProcTime, avg);
 
 
