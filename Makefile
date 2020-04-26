@@ -69,3 +69,6 @@ run-sec3-task3: lib/access.log
 run-sec3-task4: lib/access.log
 	grep -E '((Trident)|(MSIE))' lib/access.log > ${OUTPUT}access.ie.log
 
+run-sec3-task5: lib/access.log
+	grep -E '" [0-9]{3} ([5-9]|[0-9]{2,})' lib/access.log | cut -d ' ' -f 3-5
+	
