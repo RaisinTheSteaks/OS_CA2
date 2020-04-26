@@ -30,6 +30,10 @@ This project is the result of collaboration between Joshua Corcoran and Antony S
 * Created custom C program called calculate_times.c
 
 ## Running result of each section
+Before running any task, build using GCC custom C program:
+* hexToDecimal.c
+* calculate_times.c
+
 In order to run each section, type:
 
 ```
