@@ -31,20 +31,19 @@ This project is the result of collaboration between Joshua Corcoran and Antony S
 
 ## Running result of each section
 Before running any task, build using GCC custom C program:
-* hexToDecimal.c
-* calculate_times.c
+* ./section2/hexToDecimal.c
+* ./section3/calculate_times.c
 
-In order to run each section, type:
-
-```
-make run-secN-taskM
-```
-Replace the N to the number of section that is desired
-Replace the M to the number of task in the specified section
-
-Example: running section 2 task 3
+In order to run each task, go to section directories and type:
 
 ```
-make run-sec2-task3
+make run-taskN
 ```
+Replace the N to the task number
 
+Example: to run section 2 task 3, in folder section2, type in:
+
+```
+make run-task3
+```
+NB: Make sure that you are in the correct section directory
