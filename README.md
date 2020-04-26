@@ -1,6 +1,5 @@
 #Operating System CA 2 - Unix Tools
-This project is the result of collaboration between Joshua Corcoran and Antony Saputra.
-The purpose of this project is to solve tasks that are given using a given UNIX tools.
+This project is the result of collaboration between Joshua Corcoran and Antony Saputra.The purpose of this project is to solve tasks that are given using a given UNIX tools.
 
 ##Josh's Contributions
 * Initialized a new Repo
