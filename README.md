@@ -14,6 +14,7 @@ This project is the result of collaboration between Joshua Corcoran and Antony S
 	- Task 1
 	- Task 2
 	- Task 3
+	- Task 5: Filtered request that is above 5 miliseconds and display REQUEST_PATH and PROC_TIME
 * Created efficient Makefile
 
 ## Antony's Contributions
@@ -24,7 +25,7 @@ This project is the result of collaboration between Joshua Corcoran and Antony S
 	- Task 3
 * Section 3:
 	- Task 4
-	- Task 5
+	- Task 5 : Convert Filtered REQUEST_PATH and PROC_TIME into sorted single line to be put on fgets in custom program
 * Created custom C program called hexToDecimal.c
 * Created custom C program called calculate_times.c
 
